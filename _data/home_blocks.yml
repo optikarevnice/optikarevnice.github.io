@@ -1,0 +1,112 @@
+style: is-light
+height: is-medium
+items:
+  - title: Novinky
+    class:
+    parts:
+    - subtitle: Změna otevírací doby
+      description: |
+        Vážení zákazníci,
+        
+        Je nutné vzhledem k současné situaci si prosím domlouvejte individuální čas vašich návštěv, a to na čísle [778 060 495](tel:778 060 495) optiku a [777 794 887](tel:777 794 887) pro návštěvu ordinace v Radotíně.
+        
+        **V Řevnicích paní doktorka Brychtová ordinuje čtvrtek až sobota od 9:00 do 15:00 po předchozím telefonickém objednání.** 
+            
+        **Otevírací doba oční optiky v Řevnicích se nemění. Otevřeno je každý všední den 9:00 - 19:00 a v sobotu 9:00 - 16:00.**
+        
+        Je nutné vzhledem k současné situaci si domluvit individuální čas vaší návštěvy na číslech [607 030 090](tel:607 030 090) nebo [737 705 036](tel:737 705 036). 
+        
+        Nově nabízíme rozvoz vyhotovených a předem uhrazených brýlí do vzdálenosti 20 km od Řevnic. V případě zájmu zavolejte, rádi vám řekneme podrobnosti!
+        
+        Těšíme se na viděnou a děkujeme za pochopení.
+  - title: Řevnice
+    class: has-background-light
+    parts:
+    - subtitle: Otevírací doba
+      description: |
+        **Ordinace**
+
+        Pro objednané pacienty
+
+        Pá | 9–19
+        So | 9–16
+
+        **Optika**
+
+        Po | 9–19
+        Út | 9–19
+        St | 9–19
+        Čt | 9–19
+        Pá | 9–19
+        So | 9–16
+    - subtitle: Kontakt
+      description: |
+        **Ordinace i Optika**
+
+        [+420 607 030 090](tel:420607030090)
+
+        **Adresa**
+
+        Herrmannova 120, 252 30 Řevnice
+
+        <iframe style="border:none" src="https://frame.mapy.cz/s/getoterapa" height="280" frameborder="0"></iframe>
+        [streetview](https://www.google.cz/maps/place/Herrmannova+120,+252+30+%C5%98evnice/@49.9134979,14.2307478,3a,75y,40h,90t/data=!3m7!1e1!3m5!1sUC3lfouOQ7MLrvOYO-l2bg!2e0!6s%2F%2Fgeo0.ggpht.com%2Fcbk%3Fcb_client%3Dmaps_sv.tactile%26output%3Dthumbnail%26thumb%3D2%26panoid%3DUC3lfouOQ7MLrvOYO-l2bg%26w%3D374%26h%3D75%26yaw%3D40%26pitch%3D0%26thumbfov%3D120%26ll%3D49.913498,14.230748!7i13312!8i6656!4m2!3m1!1s0x470ba26ed5e6a41d:0x976064a758654de!6m1!1e1?hl=cs)
+  - title: Služby
+    class:
+    parts:
+      - subtitle: Optometrie
+        description: |
+          Není-li vyžadována přítomnost lékaře jsme schopni na obou optometristických pracovištích změřit a zhotovit brýle bez objednání, popř. s minimální čekací dobou. Prosím volejte na uvedená čísla našich optik.
+      - subtitle: Kontaktní čočky
+        description: |
+          Kromě základní ambulantní péče se věnujeme aplikaci kontaktních čoček dioptrických i barevných.
+
+          Aplikujeme kontaktní čočky všech význačných firem zastoupených na našem trhu (Alcon, Johnson&Johnson či CooperVision, Bausch & Lomb.....), od nichž jsme získali řadu ocenění a certifikátů.
+
+          Až na výjimečné případy aplikujeme výhradně čočky tzv. disposable, čili s omezenou životností na 14 dnů, 30 dnů, nejraději ovšem čočky jednodenní. Tyto čočky jsou nejkvalitnější a pro oko nejšetrnější. Ve výjimečných vhodných případech nabízíme kontaktní čočky na tzv. prodloužené nošení, což znamená, že klient je má v očích nepřetržitě třicet dnů, pak je vyjme a nasadí další pár.
+
+          Nabízené portfolio kontaktních čoček neustále aktualizujeme dle měnící se nabídky na trhu.
+      - subtitle: Platby
+        description: |
+          V obou našich pobočkách - v Radotíně i v Řevnicích přijímáme běžné platební karty,
+          dárkové šeky a poukazy od takřka všech provozovatelů jako jsou firmy Sodexo, Edenred nebo Le Chèque Déjeuner.
+      - subtitle: Dárkové balíčky
+        description: |
+          Využijte také možnosti sestavit si dárkové balíčky pro Vaše blízké, kterým nabízíme dárkové poukazy do obou našich optik společně s odborným oftalmologickým vyšetřením.
+  - title: Ceník
+    parts:
+      - subtitle:
+        description: |
+          Ceník výkonů nehrazených ZP platný od 1. 01. 2017
+
+          **Typ vyšetření / zákroku**	| **cena výkonu (kč)**
+          OCT - 1 oko	| 350
+          OCT - obě oči	| 600
+          ŘP amatér	| 750
+          ŘP profesionál	| 1050
+          Kontaktní čočky – 1. vyš.	| 850
+          Kontaktní čočky – kontr.vyš.	| 150
+          Odstranění novotvaru kauterem	| 200
+          Odstranění novotvaru excisí	| 600
+          Rohovkový topogram - obě oči	| 250
+          Vyšetření refrakce do dálky i do blízka	| 700
+          Vyšetření stability slzného filmu – obě oči	| 250
+          Stanovení refrakce do dálky i do blízka – obě oči	| 600
+  - title: OCT
+    class: has-background-light
+    parts:
+      - subtitle: Co to je?
+        description: |
+          Spektrální optický koherentní tomograf (OCT). Laicky řečeno jde o oční přístroj, který využívá optického paprsku, jeho odrazu a posunu, jenž je následně zpracován počítačem a převeden pomocí barevné škály do trojrozměrného obrazu vyšetřovaných struktur.Tato vyšetřovací technika nabízí unikátní možnost zobrazení struktury sítnice oka a měření tloušťky vrstvy nervových vláken na principu optické obdoby A-scanu ultrazvuku.Pacienti tak získají jedinečnou možnost neinvazivního vyšetření oka, kdy lékař vidí i hluboké vrstvy oka v trojrozměrném 3D modelu.
+      - subtitle: Co přesně vyšetřujete novým spektrálním očním koherentním tomografem?
+        description: |
+          Moderní diagnostické zařízení slouží k přesnému sledování změn na zrakovém nervu i sítnici, zvláště u zeleného zákalu (glaukomu) a věkem podmíněných makulárních degenerací a jejich sledování v čase. Pro porovnání: rozlišovací schopnost ultrazvukového vyšetření je asi 150-300 mikrometrů a spektrálního OCT 3-18 mikrometrů.Velkou výhodou je možnost 3D zobrazení struktur oka.Můžeme tedy provádět řezy "v kostce" - různě s nimi otáčet.
+      - subtitle: Jaké možnosti získává lékař díky novému OCT při vyšetřování oka?
+        description: |
+          Vyšetření na spektrálním OCT v čase umožní jednak vyčkat s nasazením lokální léčby zeleného zákalu a také přesně indikovat aplikace léků do sklivce, které zastavují růst nežádoucích novotvořených cév na sítnici. Dovoluje také indikovat chirurgické řešení určitých patologických stavů nitra oka, sledovat efekt léčby. S rozšířeným vybavením přístroje pak můžeme také vyšetřovat přední segment oka. To znamená rohovku - tedy provádět bezkontaktní pachymetrii - změření tloušťky rohovky a bezkontaktní měření šířky komorového úhlu zejména u zeleného zákalu, ale také poúrazových stavů a jejich hodnocení s odstupem času.
+      - subtitle: Jaké výhody přináší nová diagnostická metoda pacientům?
+        description: |
+          Vyšetření je nebolestivé, relativně krátké, většinou není potřeba oko rozkapávat, takže pacient může potom odjet domů třeba autem. Výsledek vyšetření je vzápětí, a to v podobě barevného přesného zobrazení všech vyšetřovaných struktur oka. I když je toto zobrazení velmi přesné, diagnóza z tohoto vyšetření se u některých onemocnění sítnice i zrakového nervu musí doplnit dalšími vyšetřeními. Lékař, který spektrální OCT vyhodnotí, pacienta vždy poučí a vysvětlí mu výsledek.
+
+          Protože toto vyšetření využívá optického paprsku a jeho odrazu, je neproveditelné u očí, které mají neprůhledná média - tedy rohovku, čočku nebo sklivec. Toto vyšetření vyžaduje také spolupráci pacienta - klid hlavy a očí při vyšetření.
+      
