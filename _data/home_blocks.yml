@@ -4,21 +4,13 @@ items:
   - title: Novinky
     class:
     parts:
-    - subtitle: Změna otevírací doby
+    - subtitle: Otevírací doba
       description: |
         Vážení zákazníci,
-        
-        Je nutné vzhledem k současné situaci si prosím domlouvejte individuální čas vašich návštěv, a to na čísle [778 060 495](tel:778 060 495) optiku a [777 794 887](tel:777 794 887) pro návštěvu ordinace v Radotíně.
-        
-        **V Řevnicích paní doktorka Brychtová ordinuje čtvrtek až sobota od 9:00 do 15:00 po předchozím telefonickém objednání.** 
-            
-        **Otevírací doba oční optiky v Řevnicích se nemění. Otevřeno je každý všední den 9:00 - 19:00 a v sobotu 9:00 - 16:00.**
-        
-        Je nutné vzhledem k současné situaci si domluvit individuální čas vaší návštěvy na číslech [607 030 090](tel:607 030 090) nebo [737 705 036](tel:737 705 036). 
-        
-        Nově nabízíme rozvoz vyhotovených a předem uhrazených brýlí do vzdálenosti 20 km od Řevnic. V případě zájmu zavolejte, rádi vám řekneme podrobnosti!
-        
-        Těšíme se na viděnou a děkujeme za pochopení.
+              
+        optika i ordinace fungují v běžném režimu. Pro objenání k lékaři je potřeba zavolat na 607 030 090 a domluvit se na konkrétním termínu.
+                
+        Těšíme se na vaši návštěvu.
   - title: Řevnice
     class: has-background-light
     parts:
@@ -56,7 +48,7 @@ items:
     parts:
       - subtitle: Optometrie
         description: |
-          Není-li vyžadována přítomnost lékaře jsme schopni na obou optometristických pracovištích změřit a zhotovit brýle bez objednání, popř. s minimální čekací dobou. Prosím volejte na uvedená čísla našich optik.
+          Není-li vyžadována přítomnost lékaře jsme schopni změřit a zhotovit brýle bez objednání, popř. s minimální čekací dobou.
       - subtitle: Kontaktní čočky
         description: |
           Kromě základní ambulantní péče se věnujeme aplikaci kontaktních čoček dioptrických i barevných.
@@ -68,11 +60,11 @@ items:
           Nabízené portfolio kontaktních čoček neustále aktualizujeme dle měnící se nabídky na trhu.
       - subtitle: Platby
         description: |
-          V obou našich pobočkách - v Radotíně i v Řevnicích přijímáme běžné platební karty,
+          Přijímáme běžné platební karty,
           dárkové šeky a poukazy od takřka všech provozovatelů jako jsou firmy Sodexo, Edenred nebo Le Chèque Déjeuner.
       - subtitle: Dárkové balíčky
         description: |
-          Využijte také možnosti sestavit si dárkové balíčky pro Vaše blízké, kterým nabízíme dárkové poukazy do obou našich optik společně s odborným oftalmologickým vyšetřením.
+          Využijte také možnosti sestavit si dárkové balíčky pro Vaše blízké, kterým nabízíme dárkové poukazy i s odborným oftalmologickým vyšetřením.
   - title: Ceník
     parts:
       - subtitle:
