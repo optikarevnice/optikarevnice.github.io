@@ -108,7 +108,7 @@ items:
           Vyšetření refrakce do dálky i do blízka	| 800
           Vyšetření stability slzného filmu – obě oči	| 250
           Vyšetření pro účely zaměstnání  | 1000
-            - title: OCT
+            
   - title: OCT
     class: has-background-light
     parts:
