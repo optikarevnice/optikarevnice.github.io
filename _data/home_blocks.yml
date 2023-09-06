@@ -20,7 +20,7 @@ items:
 
         Pro objednané pacienty
         
-        Po | 8–16
+        Po | 8:30–16
         Pá | 9–13        
 
         **Optika**
@@ -73,7 +73,7 @@ items:
     parts:
       - subtitle: Optometrie
         description: |
-          Není-li vyžadována přítomnost lékaře jsme schopni změřit a zhotovit brýle bez objednání, popř. s minimální čekací dobou.
+          Není-li vyžadována přítomnost lékaře jsme schopni změřit a zhotovit brýle bez objednání, popř. s minimální čekací dobou. Doporučujeme se objednat na konkrétní termín, abychom na vás měli dostatek času.
       - subtitle: Kontaktní čočky
         description: |
           Kromě základní ambulantní péče se věnujeme aplikaci kontaktních čoček dioptrických i barevných.
@@ -87,29 +87,28 @@ items:
         description: |
           Přijímáme běžné platební karty,
           dárkové šeky a poukazy od takřka všech provozovatelů jako jsou firmy Sodexo, Edenred nebo Le Chèque Déjeuner.
-      - subtitle: Dárkové balíčky
+      - subtitle: Dárkové balíčky a poukazy
         description: |
-          Využijte také možnosti sestavit si dárkové balíčky pro Vaše blízké, kterým nabízíme dárkové poukazy i s odborným oftalmologickým vyšetřením.
+          Nabízíme dárkové poukazy na libovolnou hodnotu nebo sestavení dárkového balíčku pro Vaše blízké.
   - title: Ceník
     parts:
       - subtitle:
         description: |
-          Ceník výkonů nehrazených ZP platný od 1. 01. 2017
+          Ceník výkonů nehrazených ZP platný od 1. 01. 2023
 
           **Typ vyšetření / zákroku**	| **cena výkonu (kč)**
-          OCT - 1 oko	| 350
-          OCT - obě oči	| 600
+          OCT - 1 oko	| 450
+          OCT - obě oči	| 900
           ŘP amatér	| 750
-          ŘP profesionál	| 1050
-          Kontaktní čočky – 1. vyš.	| 850
-          Kontaktní čočky – kontr.vyš.	| 150
-          Odstranění novotvaru kauterem	| 200
-          Odstranění novotvaru excisí	| 600
-          Rohovkový topogram - obě oči	| 250
-          Vyšetření refrakce do dálky i do blízka	| 700
+          ŘP amatér	| 1000
+          ŘP profesionál	| 1100
+          Kontaktní čočky – 1. vyš.	| 900
+          Kontaktní čočky – kontr.vyš.	| 500
+          Rohovkový topogram - obě oči	| 400
+          Vyšetření refrakce do dálky i do blízka	| 800
           Vyšetření stability slzného filmu – obě oči	| 250
-          Stanovení refrakce do dálky i do blízka – obě oči	| 600
-  - title: OCT
+          Vyšetření pro účely zaměstnání  | 1000
+            - title: OCT
     class: has-background-light
     parts:
       - subtitle: Co to je?
