@@ -7,9 +7,7 @@ items:
     - subtitle: Otevírací doba
       description: |
         Vážení zákazníci,
-        
-        **od 1. 7. 2021 do 7. 8. 2021 nebude přítomen lékař. Optika je stále otevřena.**
-       
+               
         Pro objednání k lékaři je potřeba zavolat na 607 030 090 a domluvit se na konkrétním termínu.
                 
         Těšíme se na vaši návštěvu.
@@ -22,16 +20,17 @@ items:
 
         Pro objednané pacienty
         
+        Po | 8–16
         Pá | 9–13        
 
         **Optika**
 
-        Po | 9–19
+        Po | 8–18
         Út | 9–19
         St | 9–19
         Čt | 9–19
-        Pá | 9–19
-        So | 9–16
+        Pá | 8:30–19
+        So | 9–14
     - subtitle: Kontakt
       description: |
         **Ordinace i Optika**
@@ -44,6 +43,28 @@ items:
 
         <iframe style="border:none" src="https://frame.mapy.cz/s/getoterapa" height="280" frameborder="0"></iframe>
         [streetview](https://www.google.cz/maps/place/Herrmannova+120,+252+30+%C5%98evnice/@49.9134979,14.2307478,3a,75y,40h,90t/data=!3m7!1e1!3m5!1sUC3lfouOQ7MLrvOYO-l2bg!2e0!6s%2F%2Fgeo0.ggpht.com%2Fcbk%3Fcb_client%3Dmaps_sv.tactile%26output%3Dthumbnail%26thumb%3D2%26panoid%3DUC3lfouOQ7MLrvOYO-l2bg%26w%3D374%26h%3D75%26yaw%3D40%26pitch%3D0%26thumbfov%3D120%26ll%3D49.913498,14.230748!7i13312!8i6656!4m2!3m1!1s0x470ba26ed5e6a41d:0x976064a758654de!6m1!1e1?hl=cs)
+  - title: Dejvice
+    class: has-background-light
+    parts:
+    - subtitle: Otevírací doba
+      description: |
+        **Optika**
+
+        Po | 8–14
+        Út | 8–18
+        St | 8–18
+        Čt | 8–18
+        Pá | 8–14
+    - subtitle: Kontakt
+      description: |
+        **Optika**
+
+        [+420 725 130 030](tel:420725130030)
+
+        **Adresa**
+
+        Vítězné náměstí 9, Praha 6 - Dejvice, 160 00
+
   - title: Služby
     class:
     parts:
