@@ -8,7 +8,7 @@ items:
       description: |
         Vážení zákazníci,
                
-        Pro objednání k lékaři je potřeba zavolat na 607 030 090 a domluvit se na konkrétním termínu.
+        Pro objednání k lékaři je potřeba zavolat na [+420 607 030 090](tel:+420607030090) a domluvit se na konkrétním termínu.
                 
         Těšíme se na vaši návštěvu.
   - title: Řevnice
@@ -35,7 +35,7 @@ items:
       description: |
         **Ordinace i Optika**
 
-        [+420 607 030 090](tel:420607030090)
+        [+420 607 030 090](tel:+420607030090)
 
         **Adresa**
 
@@ -59,7 +59,7 @@ items:
       description: |
         **Optika**
 
-        [+420 725 130 030](tel:420725130030)
+        [+420 725 130 030](tel:+420725130030)
 
         **Adresa**
 
