@@ -7,10 +7,13 @@ items:
     - subtitle: Otevírací doba
       description: |
         Vážení zákazníci,
+        
+        optika je v týdnu od 1. 7. do 7. 7. 2024 zavřena z důvodu dovolené. Po celou dobu prázdnin 2024 bude v sobotu zavřeno.
                
         Pro objednání k lékaři je potřeba zavolat na [+420 607 030 090](tel:+420607030090) a domluvit se na konkrétním termínu.
                 
         Těšíme se na vaši návštěvu.
+        
   - title: Řevnice
     class: has-background-light
     parts:
