@@ -25,19 +25,20 @@ items:
       description: |
         **Ordinace**
 
-        Pro objednané pacienty
+        K lékaři je nutné se objednat
         
-        Po | 8:30–16
-        Pá | 9–13        
+        Po | 8:30–16:30
+        Út | 8:30–13:00
+        Pá | 8:30–13:00
 
         **Optika**
 
-        Po | 8–18
-        Út | 9–19
-        St | 9–19
-        Čt | 9–19
-        Pá | 8:30–19
-        So | 9–14
+        Po | 8:00–18:00
+        Út | 8:30–19:00
+        St | 9:00–17:00
+        Čt | 8:30–19:00
+        Pá | 9:00–19:00 (měření zraku optometristou)
+        So | 9:00–12:00
     - subtitle: Kontakt
       description: |
         **Ordinace i Optika**
