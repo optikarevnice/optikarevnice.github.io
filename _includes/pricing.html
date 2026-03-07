@@ -1,0 +1,23 @@
+<section class="pricing" id="cenik">
+    <div class="section__container">
+        <h2 class="section__title fade-in">Ceník</h2>
+        <div class="pricing__table-wrap fade-in">
+            <table class="pricing__table">
+                <thead>
+                    <tr>
+                        <th>Typ vyšetření / zákroku</th>
+                        <th>Cena</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in site.data.pricing %}
+                    <tr>
+                        <td>{{ item.service }}</td>
+                        <td class="pricing__price">{{ item.price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

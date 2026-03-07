@@ -1,0 +1,15 @@
+- title: "Optometrie"
+  icon: "👓"
+  description: "Měření zraku a výroba brýlí je možná i bez objednání, pokud není potřeba vyšetření lékařem. Pro jistotu ale doporučujeme se objednat."
+
+- title: "Kontaktní čočky"
+  icon: "👁️"
+  description: "Aplikace dioptrických i barevných kontaktních čoček (Alcon, Johnson & Johnson, CooperVision, Bausch & Lomb). Specializace na jednorázové čočky — jednodenní, čtrnáctidenní i měsíční."
+
+- title: "Platby"
+  icon: "💳"
+  description: "Přijímáme platební karty a benefitní poukázky (Sodexo, Edenred, Le Chèque Déjeuner)."
+
+- title: "Dárkové balíčky"
+  icon: "🎁"
+  description: "Nabízíme dárkové poukazy a sestavíme vám dárkový balíček na míru."

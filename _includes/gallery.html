@@ -1,0 +1,19 @@
+<section class="gallery" id="galerie">
+    <div class="section__container">
+        <h2 class="section__title fade-in">
+            <a href="{{ site.data.contact.social.instagram }}" target="_blank" rel="noopener">
+                📸 Galerie
+            </a>
+        </h2>
+        <div class="gallery__grid fade-in">
+            {% for post in site.data.gallery.posts %}
+            <div class="gallery__item">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ post.url | split: '?' | first }}"
+                    data-instgrm-version="14" style="width:100%;">
+                </blockquote>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<script async src="//www.instagram.com/embed.js"></script>

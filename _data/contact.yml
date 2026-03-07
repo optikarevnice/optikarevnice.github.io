@@ -1,0 +1,28 @@
+email: "optikarevnice@optikarevnice.cz"
+
+social:
+  instagram: "https://www.instagram.com/optikarevnice/"
+  facebook: "https://www.facebook.com/optikarevnice/"
+
+locations:
+  revnice:
+    name: "Řevnice"
+    phone: "+420 607 030 090"
+    address: "Herrmannova 120, 252 30 Řevnice"
+    map_url: "https://maps.google.com/?q=Herrmannova+120,+252+30+%C5%98evnice"
+
+  dejvice:
+    name: "Dejvice"
+    phone: "+420 725 130 030"
+    address: "Vítězné náměstí 9, Praha 6 – Dejvice, 160 00"
+    note: "3. patro, uvnitř oční kliniky"
+    map_url: "https://maps.google.com/?q=V%C3%ADt%C4%9Bzn%C3%A9+n%C3%A1m%C4%9Bst%C3%AD+9,+Praha+6"
+
+company:
+  name: "OphtaOptik s.r.o."
+  ico: "09110020"
+  directors:
+    - "MUDr. Jana Brychtová"
+    - "Ing. Markéta Dušánková"
+  registry: "C 330416 vedená u Městského soudu v Praze"
+  address: "Zahradní 542, 252 29 Lety"

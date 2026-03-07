@@ -1,0 +1,9 @@
+# List Instagram post URLs to embed in the gallery section.
+# Add or remove URLs to update the gallery.
+# Use the full post URL from Instagram.
+
+posts:
+  - url: "https://www.instagram.com/p/DU854E8iK94/"
+  - url: "https://www.instagram.com/p/DUn5BJfiAWq"
+  - url: "https://www.instagram.com/p/DTssP5_iIHU"
+  - url: "https://www.instagram.com/p/DUOnNwsiJEi/"

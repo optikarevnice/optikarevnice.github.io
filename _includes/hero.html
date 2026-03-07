@@ -1,11 +1,92 @@
-<section class="hero {% if page.hero_height %} {{ page.hero_height }} {% else %} is-medium {% endif %} is-bold is-primary" {% if page.hero_image %} style="background: url('{{ page.hero_image }}') no-repeat center center; background-size: cover;" {% endif %}>
-    <div class="hero-body">
-        <div class="container">
-            <p class="title is-2">{{ page.title }}</p>
-            <p class="subtitle is-3">{{ page.subtitle }}</p>
-            {% if page.hero_link %}
-                <a href="{{ page.hero_link | prepend: site.baseurl  }}" class="button is-info is-large">{{ page.hero_link_text }}</a>
-            {% endif %}
+<section class="hero" id="aktuality">
+    <div class="hero__container">
+        <!-- News Column (only if novinky.md has content) -->
+        {% capture novinky_content %}{% include novinky.md %}{% endcapture %}
+        {% assign novinky_stripped = novinky_content | strip %}
+        {% if novinky_stripped != "" %}
+        <div class="hero__card hero__card--accent fade-in">
+            <h2 class="hero__card-title">📢 Aktuality</h2>
+            <div class="hero__card-body">
+                {{ novinky_content | markdownify }}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Řevnice: Opening Hours + Contact -->
+        <div class="hero__card fade-in" id="ordinace">
+            <h2 class="hero__card-title">🕒 Řevnice</h2>
+            <div class="hero__card-body">
+                <h3>{{ site.data.opening_hours.revnice.ordinace.title }}</h3>
+                <table class="hours-table">
+                    {% for item in site.data.opening_hours.revnice.ordinace.days %}
+                    <tr{% if item.hours=="—" %} class="hours-table__closed" {% endif %}>
+                        <td>{{ item.day }}</td>
+                        <td>{{ item.hours }}</td>
+                        </tr>
+                        {% endfor %}
+                </table>
+                {% if site.data.opening_hours.revnice.ordinace.note %}
+                <p class="hours-note">
+                    {{ site.data.opening_hours.revnice.ordinace.note }}
+                </p>
+                {% endif %}
+
+                <h3>{{ site.data.opening_hours.revnice.optika.title }}</h3>
+                <table class="hours-table">
+                    {% for item in site.data.opening_hours.revnice.optika.days %}
+                    <tr{% if item.hours=="—" %} class="hours-table__closed" {% endif %}>
+                        <td>{{ item.day }}</td>
+                        <td>{{ item.hours }}{% if item.note %} <span class="hours-table__note">{{ item.note }}</span>{%
+                            endif %}</td>
+                        </tr>
+                        {% endfor %}
+                </table>
+
+                <!-- Řevnice Contact -->
+                <div class="hero__contact">
+                    <p class="contact__address">📍 {{ site.data.contact.locations.revnice.address }}</p>
+                    <p class="contact__phone">
+                        <a href="tel:{{ site.data.contact.locations.revnice.phone | replace: ' ', '' }}">{{
+                            site.data.contact.locations.revnice.phone }}</a>
+                    </p>
+                    <a href="{{ site.data.contact.locations.revnice.map_url }}" target="_blank" rel="noopener"
+                        class="contact__map-link">
+                        Zobrazit na mapě →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dejvice: Opening Hours + Contact -->
+        <div class="hero__card hero__card--alt fade-in">
+            <h2 class="hero__card-title">🕒 Dejvice</h2>
+            <div class="hero__card-body">
+                <h3>{{ site.data.opening_hours.dejvice.optika.title }}</h3>
+                <table class="hours-table">
+                    {% for item in site.data.opening_hours.dejvice.optika.days %}
+                    <tr{% if item.hours=="—" %} class="hours-table__closed" {% endif %}>
+                        <td>{{ item.day }}</td>
+                        <td>{{ item.hours }}</td>
+                        </tr>
+                        {% endfor %}
+                </table>
+
+                <!-- Dejvice Contact -->
+                <div class="hero__contact">
+                    <p class="contact__address">📍 {{ site.data.contact.locations.dejvice.address }}</p>
+                    {% if site.data.contact.locations.dejvice.note %}
+                    <p class="contact__note">{{ site.data.contact.locations.dejvice.note }}</p>
+                    {% endif %}
+                    <p class="contact__phone">
+                        <a href="tel:{{ site.data.contact.locations.dejvice.phone | replace: ' ', '' }}">{{
+                            site.data.contact.locations.dejvice.phone }}</a>
+                    </p>
+                    <a href="{{ site.data.contact.locations.dejvice.map_url }}" target="_blank" rel="noopener"
+                        class="contact__map-link">
+                        Zobrazit na mapě →
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

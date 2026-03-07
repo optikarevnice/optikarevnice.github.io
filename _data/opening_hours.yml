@@ -1,0 +1,52 @@
+revnice:
+  ordinace:
+    title: "Ordinace Řevnice"
+    note: "K lékaři je nutné se objednat."
+    phone: "+420 607 030 090"
+    days:
+      - day: "Pondělí"
+        hours: "8:30–16:30"
+      - day: "Úterý"
+        hours: "8:30–13:00"
+      - day: "Středa"
+        hours: "8:30–13:00"
+      - day: "Čtvrtek"
+        hours: "8:30–13:00"
+      - day: "Pátek"
+        hours: "—"
+      - day: "Sobota"
+        hours: "—"
+
+  optika:
+    title: "Optika Řevnice"
+    days:
+      - day: "Pondělí"
+        hours: "8:00–18:00"
+      - day: "Úterý"
+        hours: "8:30–19:00"
+      - day: "Středa"
+        hours: "8:30–17:00"
+      - day: "Čtvrtek"
+        hours: "8:30–19:00"
+      - day: "Pátek"
+        hours: "9:00–19:00"
+        note: "Měření zraku optometristou"
+      - day: "Sobota"
+        hours: "9:00–12:00"
+
+dejvice:
+  optika:
+    title: "Optika Dejvice"
+    days:
+      - day: "Pondělí"
+        hours: "8:00–18:00"
+      - day: "Úterý"
+        hours: "8:00–14:00"
+      - day: "Středa"
+        hours: "8:00–18:00"
+      - day: "Čtvrtek"
+        hours: "8:00–18:00"
+      - day: "Pátek"
+        hours: "8:00–14:00"
+      - day: "Sobota"
+        hours: "—"
