@@ -1,3 +1,5 @@
-## Objednání k lékaři
+Vážení zákazníci, 
 
-Vážení zákazníci, pro objednání k lékaři je potřeba zavolat na [{{ site.data.contact.locations.revnice.phone }}](tel:{{ site.data.contact.locations.revnice.phone | replace: ' ', '' }}) a domluvit se na konkrétním termínu. Těšíme se na vaši návštěvu.
+v sobotu 14.3.2026 máme zavřeno z důvodu účasti na veletrhu.
+
+Těšíme se na vás opět v pondělí v obvyklé pracovní době.
