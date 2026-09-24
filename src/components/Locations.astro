@@ -1,0 +1,72 @@
+---
+import { fullAddress, isClosed, locations, telHref } from '../lib/data';
+import { dayOfWeek } from '../lib/schema';
+---
+
+<section id="pobocky" class="section" aria-labelledby="pobocky-title">
+  <div class="container">
+    <header class="section__header">
+      <p class="eyebrow">Pobočky</p>
+      <h2 id="pobocky-title">Otevírací doba a kde nás najdete</h2>
+    </header>
+
+    <div class="locations">
+      {locations.map((location) => (
+        <article class="location" id={location.id} aria-labelledby={`${location.id}-title`}>
+          <h3 id={`${location.id}-title`} class="location__title">{location.name}</h3>
+          <address class="location__address">
+            <p>
+              <span class="label">Adresa</span>
+              {fullAddress(location)}
+              {location.note && <><br /><span class="muted">{location.note}</span></>}
+            </p>
+            <p>
+              <span class="label">Telefon</span>
+              <a href={telHref(location.phone)}>{location.phone}</a>
+            </p>
+            {location.map_url && (
+              <p><a class="link-arrow" href={location.map_url} target="_blank" rel="noopener">Zobrazit na mapě</a></p>
+            )}
+          </address>
+
+          <div class="location__units">
+            {location.units.map((unit) => (
+              <div class="unit" id={unit.kind === 'ordinace' ? 'ordinace' : undefined}>
+                <h4 class="unit__title">{unit.title}</h4>
+                <table class="hours">
+                  <caption class="visually-hidden">Otevírací doba – {unit.title}</caption>
+                  <tbody>
+                    {unit.days.map((d) => (
+                      <tr class:list={{ 'is-closed': isClosed(d.hours) }} data-day={dayOfWeek(d.day)}>
+                        <th scope="row">{d.day}</th>
+                        <td>
+                          {isClosed(d.hours) ? 'zavřeno' : d.hours}
+                          {d.note && <span class="hours__note">{d.note}</span>}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {(unit.note || unit.phone) && (
+                  <p class="unit__note">
+                    {unit.note}
+                    {unit.phone && unit.phone !== location.phone && <> Tel.: <a href={telHref(unit.phone)}>{unit.phone}</a></>}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Highlight today's row (Prague time) in every opening-hours table.
+  const today = new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'Europe/Prague' }).format(new Date());
+  document.querySelectorAll(`.hours tr[data-day="${today}"]`).forEach((row) => {
+    row.classList.add('is-today');
+    row.querySelector('th')?.insertAdjacentHTML('beforeend', ' <span class="today-badge">dnes</span>');
+  });
+</script>

@@ -1,28 +1,266 @@
 media:
-  input: assets/images
-  output: /assets/images
+  - name: gallery
+    label: "Galerie"
+    input: src/assets/gallery
+    output: /src/assets/gallery
+    categories: [image]
+    rename: safe
+  - name: images
+    label: "Obrázky v textech"
+    input: public/images
+    output: /images
+    categories: [image]
+    rename: safe
 
 content:
-  - name: novinky
-    label: "📢 Aktuality (novinky)"
+  - name: aktuality
+    label: "📢 Aktuality"
     type: file
-    path: _includes/novinky.md
+    path: src/content/pages/aktuality.md
+    format: yaml-frontmatter
     fields:
+      - name: title
+        label: "Nadpis"
+        type: string
+        default: "Aktuality"
       - name: body
         label: "Text aktualit"
+        description: "Když text smažete, rámeček s aktualitami se na webu nezobrazí."
         type: rich-text
         options:
           format: markdown
+          media: images
+
+  - name: locations
+    label: "🕒 Pobočky a otevírací doba"
+    type: file
+    path: src/data/locations.yml
+    format: yaml
+    list: true
+    fields:
+      - name: id
+        label: "Kotva v URL"
+        description: "Krátký identifikátor bez diakritiky a mezer, např. revnice."
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: name
+        label: "Název pobočky"
+        type: string
+        required: true
+      - name: phone
+        label: "Telefon"
+        type: string
+        required: true
+      - name: street
+        label: "Ulice a číslo"
+        type: string
+        required: true
+      - name: postal_code
+        label: "PSČ"
+        type: string
+        required: true
+      - name: city
+        label: "Obec"
+        type: string
+        required: true
+      - name: note
+        label: "Poznámka k adrese"
+        type: string
+      - name: map_url
+        label: "Odkaz na mapu"
+        type: string
+      - name: units
+        label: "Provozy (optika, ordinace)"
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: "Název"
+            type: string
+            required: true
+          - name: kind
+            label: "Typ"
+            type: select
+            required: true
+            options:
+              values:
+                - name: optika
+                  label: "Optika"
+                - name: ordinace
+                  label: "Ordinace"
+          - name: note
+            label: "Poznámka"
+            type: string
+          - name: phone
+            label: "Telefon (pokud se liší od pobočky)"
+            type: string
+          - name: days
+            label: "Otevírací doba"
+            type: object
+            list: true
+            fields:
+              - name: day
+                label: "Den"
+                type: select
+                required: true
+                options:
+                  values: ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle"]
+              - name: hours
+                label: "Hodiny"
+                description: "Např. 8:30–16:30. Pro zavřeno napište —"
+                type: string
+                required: true
+              - name: note
+                label: "Poznámka"
+                type: string
+
+  - name: services
+    label: "👓 Služby"
+    type: file
+    path: src/data/services.yml
+    format: yaml
+    list: true
+    fields:
+      - name: title
+        label: "Název"
+        type: string
+        required: true
+      - name: icon
+        label: "Ikona (emoji)"
+        type: string
+      - name: description
+        label: "Popis"
+        type: text
+        required: true
+
+  - name: pricing
+    label: "💰 Ceník"
+    type: file
+    path: src/data/pricing.yml
+    format: yaml
+    list: true
+    fields:
+      - name: service
+        label: "Vyšetření / zákrok"
+        type: string
+        required: true
+      - name: price
+        label: "Cena"
+        description: "Např. 1 000 Kč"
+        type: string
+        required: true
+
+  - name: gallery
+    label: "📸 Galerie"
+    type: file
+    path: src/data/gallery.yml
+    format: yaml
+    fields:
+      - name: title
+        label: "Nadpis sekce"
+        type: string
+        default: "Galerie"
+      - name: intro
+        label: "Úvodní text"
+        type: text
+      - name: photos
+        label: "Fotografie"
+        description: "Pořadí fotografií na webu odpovídá pořadí zde (přetažením ho změníte)."
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: "Fotografie"
+            description: "JPG, PNG nebo WebP. Web ji sám zmenší a optimalizuje."
+            type: image
+            required: true
+            options:
+              media: gallery
+              extensions: [jpg, jpeg, png, webp, avif]
+          - name: alt
+            label: "Popis obrázku (alt)"
+            description: "Co je na fotce – pro nevidomé a vyhledávače. Např. „Sluneční brýle Morel v želvovinovém tónu“."
+            type: string
+            required: true
+          - name: title
+            label: "Titulek"
+            type: string
+          - name: caption
+            label: "Text k fotografii"
+            description: "Zobrazí se po kliknutí na fotografii."
+            type: text
+          - name: date
+            label: "Datum"
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - name: link
+            label: "Odkaz (např. příspěvek na Instagramu)"
+            type: string
+
+  - name: oct
+    label: "🔬 Stránka OCT"
+    type: file
+    path: src/content/pages/oct.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: "Nadpis"
+        type: string
+        required: true
+      - name: summary
+        label: "Krátké shrnutí"
+        description: "Zobrazí se pod nadpisem a v kartě na úvodní stránce."
+        type: text
+      - name: description
+        label: "Popis pro vyhledávače"
+        description: "1–2 věty, max. ~160 znaků."
+        type: text
+      - name: body
+        label: "Text stránky"
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  - name: site
+    label: "🏠 Úvodní stránka a SEO"
+    type: file
+    path: src/data/site.yml
+    format: yaml
+    fields:
+      - name: name
+        label: "Název firmy / značky"
+        type: string
+        required: true
+      - name: title
+        label: "Titulek stránky (záložka prohlížeče, Google)"
+        type: string
+        required: true
+      - name: description
+        label: "Popis pro vyhledávače"
+        description: "1–2 věty, max. ~160 znaků."
+        type: text
+        required: true
+      - name: headline
+        label: "Hlavní nadpis na úvodní stránce"
+        type: string
+        required: true
+      - name: intro
+        label: "Úvodní text pod nadpisem"
+        type: text
 
   - name: contact
-    label: "☎️ Kontakt"
+    label: "☎️ Kontakt a firemní údaje"
     type: file
-    path: _data/contact.yml
+    path: src/data/contact.yml
     format: yaml
     fields:
       - name: email
         label: "E-mail"
         type: string
+        required: true
       - name: social
         label: "Sociální sítě"
         type: object
@@ -33,46 +271,6 @@ content:
           - name: facebook
             label: "Facebook URL"
             type: string
-      - name: locations
-        label: "Pobočky"
-        type: object
-        fields:
-          - name: revnice
-            label: "Řevnice"
-            type: object
-            fields:
-              - name: name
-                label: "Název"
-                type: string
-              - name: phone
-                label: "Telefon"
-                type: string
-              - name: address
-                label: "Adresa"
-                type: string
-              - name: map_url
-                label: "Odkaz na mapu"
-                type: string
-          - name: dejvice
-            label: "Dejvice"
-            type: object
-            fields:
-              - name: name
-                label: "Název"
-                type: string
-              - name: phone
-                label: "Telefon"
-                type: string
-              - name: address
-                label: "Adresa"
-                type: string
-              - name: note
-                label: "Poznámka"
-                type: string
-                required: false
-              - name: map_url
-                label: "Odkaz na mapu"
-                type: string
       - name: company
         label: "Firemní údaje"
         type: object
@@ -80,9 +278,11 @@ content:
           - name: name
             label: "Název společnosti"
             type: string
+            required: true
           - name: ico
             label: "IČO"
             type: string
+            required: true
           - name: directors
             label: "Jednatelé"
             type: string
@@ -93,138 +293,3 @@ content:
           - name: address
             label: "Sídlo"
             type: string
-
-  - name: services
-    label: "👓 Služby"
-    type: file
-    path: _data/services.yml
-    format: yaml
-    list: true
-    fields:
-      - name: title
-        label: "Název"
-        type: string
-      - name: icon
-        label: "Ikona (emoji)"
-        type: string
-      - name: description
-        label: "Popis"
-        type: text
-
-  - name: pricing
-    label: "💰 Ceník"
-    type: file
-    path: _data/pricing.yml
-    format: yaml
-    list: true
-    fields:
-      - name: service
-        label: "Vyšetření / zákrok"
-        type: string
-      - name: price
-        label: "Cena"
-        type: string
-
-  - name: opening_hours
-    label: "🕒 Otevírací doba"
-    type: file
-    path: _data/opening_hours.yml
-    format: yaml
-    fields:
-      - name: revnice
-        label: "Řevnice"
-        type: object
-        fields:
-          - name: ordinace
-            label: "Ordinace"
-            type: object
-            fields:
-              - name: title
-                label: "Název"
-                type: string
-              - name: note
-                label: "Poznámka"
-                type: string
-                required: false
-              - name: phone
-                label: "Telefon"
-                type: string
-              - name: days
-                label: "Dny"
-                type: object
-                list: true
-                fields:
-                  - name: day
-                    label: "Den"
-                    type: string
-                  - name: hours
-                    label: "Hodiny"
-                    type: string
-          - name: optika
-            label: "Optika"
-            type: object
-            fields:
-              - name: title
-                label: "Název"
-                type: string
-              - name: days
-                label: "Dny"
-                type: object
-                list: true
-                fields:
-                  - name: day
-                    label: "Den"
-                    type: string
-                  - name: hours
-                    label: "Hodiny"
-                    type: string
-                  - name: note
-                    label: "Poznámka"
-                    type: string
-                    required: false
-      - name: dejvice
-        label: "Dejvice"
-        type: object
-        fields:
-          - name: optika
-            label: "Optika"
-            type: object
-            fields:
-              - name: title
-                label: "Název"
-                type: string
-              - name: days
-                label: "Dny"
-                type: object
-                list: true
-                fields:
-                  - name: day
-                    label: "Den"
-                    type: string
-                  - name: hours
-                    label: "Hodiny"
-                    type: string
-
-  - name: gallery
-    label: "📸 Galerie (Instagram)"
-    type: file
-    path: _data/gallery.yml
-    format: yaml
-    fields:
-      - name: posts
-        label: "Příspěvky"
-        type: object
-        list: true
-        fields:
-          - name: url
-            label: "URL příspěvku na Instagramu"
-            type: string
-
-  - name: homepage
-    label: "🏠 Úvodní stránka"
-    type: file
-    path: index.md
-    fields:
-      - name: title
-        label: "Titulek stránky"
-        type: string

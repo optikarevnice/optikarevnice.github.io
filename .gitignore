@@ -1,7 +1,7 @@
+dist/
+.astro/
+node_modules/
+.DS_Store
+.env
 _site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-vendor/
-.bundle/
 Gemfile.lock

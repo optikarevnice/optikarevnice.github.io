@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import News from '../components/News.astro';
+import Locations from '../components/Locations.astro';
+import Services from '../components/Services.astro';
+import Pricing from '../components/Pricing.astro';
+import Gallery from '../components/Gallery.astro';
+import Contact from '../components/Contact.astro';
+import { gallery } from '../lib/data';
+import { photos } from '../lib/gallery';
+import { ORG_ID, SITE_URL } from '../lib/schema';
+
+const galleryLd = photos.length
+  ? [{
+      '@context': 'https://schema.org',
+      '@type': 'ImageGallery',
+      name: gallery.title,
+      url: `${SITE_URL}/#galerie`,
+      author: { '@id': ORG_ID },
+      image: photos.map((p) => ({
+        '@type': 'ImageObject',
+        contentUrl: new URL(p.src.src, SITE_URL).href,
+        name: p.title ?? p.alt,
+        description: p.caption ?? p.alt,
+        ...(p.date ? { datePublished: p.date.toISOString().slice(0, 10) } : {}),
+      })),
+    }]
+  : [];
+---
+
+<Base jsonLd={galleryLd}>
+  <Hero />
+  <News />
+  <Locations />
+  <Services />
+  <Pricing />
+  <Gallery />
+  <Contact />
+</Base>

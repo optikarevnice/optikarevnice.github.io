@@ -1,0 +1,40 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../lib/data';
+
+const links = [
+  { href: '/#pobocky', label: 'Otevírací doba' },
+  { href: '/#sluzby', label: 'Služby' },
+  { href: '/oct/', label: 'OCT' },
+  { href: '/#cenik', label: 'Ceník' },
+  { href: '/#galerie', label: 'Galerie' },
+  { href: '/#kontakt', label: 'Kontakt' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="brand" aria-label={`${site.name} – úvodní stránka`}>
+      <Logo class="brand__mark" />
+      <span class="brand__name">{site.name}</span>
+    </a>
+    <details class="nav-toggle">
+      <summary aria-label="Menu">
+        <span></span><span></span><span></span>
+      </summary>
+    </details>
+    <nav class="site-nav" aria-label="Hlavní navigace">
+      <ul>
+        {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // The mobile menu opens via CSS (:has(details[open])); close it after navigating.
+  const toggle = document.querySelector<HTMLDetailsElement>('.nav-toggle');
+  document.querySelectorAll('.site-nav a').forEach((a) =>
+    a.addEventListener('click', () => toggle && (toggle.open = false)),
+  );
+</script>
