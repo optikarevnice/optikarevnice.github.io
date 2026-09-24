@@ -1,0 +1,27 @@
+title: "Galerie"
+intro: "Vybrané obruby, sluneční brýle a novinky z naší optiky."
+photos:
+  - image: "/src/assets/gallery/de-stijl-panske-sede.jpg"
+    alt: "Pánské brýle De Stijl v transparentní šedé barvě"
+    title: "Pánský model De Stijl"
+    caption: "Tenhle pánský model od De Stijl je menší, kompaktní a tak příjemný na obličeji. Jemně kulatý tvar změkčí rysy, ale pořád působí mužsky. Transparentní šedá není tvrdá – spíš lehká, čistá a nadčasová. Ideální pro užší obličej nebo pro kluky, kteří nemají rádi velké, výrazné obruby. Líbí? Přijďte vyzkoušet."
+    date: 2026-02-19
+    link: "https://www.instagram.com/p/DU854E8iK94/"
+  - image: "/src/assets/gallery/de-stijl-novinka.jpg"
+    alt: "Dioptrické brýle De Stijl s tmavou obrubou a oranžovým vnitřním rámečkem"
+    title: "Novinka — De Stijl"
+    caption: "Hledáte brýle, které nejsou jen funkční, ale i tak trochu artsy? Představujeme brýle značky De Stijl – label, který přenáší principy moderní architektury a designu přímo na vaše nosy. Holandské De Stijl, minimalistické, tak trochu geometrické, s čistými liniemi. Přijďte si vyzkoušet tento elegantní model osobně."
+    date: 2026-02-11
+    link: "https://www.instagram.com/p/DUn5BJfiAWq/"
+  - image: "/src/assets/gallery/morel-slunecni-zelvovina.jpg"
+    alt: "Sluneční brýle Morel v želvovinovém tónu"
+    title: "Sluneční brýle Morel"
+    caption: "Sluneční brýle Morel v teplém želvovinovém tónu s jemným modrým detailem lichotí světlým i tmavším typům – hezky sednou blondýnkám, brunetám i hnědovláskám. Výrazné tak akorát. Takové, které doplní obličej, ale nepřebijí ho."
+    date: 2026-01-19
+    link: "https://www.instagram.com/p/DTssP5_iIHU/"
+  - image: "/src/assets/gallery/zlute-cocky-ridici.jpg"
+    alt: "Pohled přes brýle se žlutými čočkami na deštivou silnici za volantem"
+    title: "Žluté brýlové čočky pro řidiče"
+    caption: "Žlutý filtr zvyšuje kontrast a pomáhá očím lépe číst prostor. Hodí se hlavně při šeru, dešti nebo mlze – typicky za volantem. Méně oslnění, ostřejší vnímání detailů a klidnější oči při delší jízdě. Nejsou o stylu. Jsou o pohodě a jistotě na cestě. Umíme. Zařídíme."
+    date: 2026-02-01
+    link: "https://www.instagram.com/p/DUOnNwsiJEi/"

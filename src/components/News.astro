@@ -1,0 +1,22 @@
+---
+import { getEntry, render } from 'astro:content';
+
+// The notice box only appears when the "Aktuality" text in Pages CMS is not empty.
+const entry = await getEntry('pages', 'aktuality');
+const hasContent = !!entry?.body?.trim();
+const { Content } = hasContent && entry ? await render(entry) : { Content: null };
+---
+
+{hasContent && Content && (
+  <section id="aktuality" class="news" aria-labelledby="aktuality-title">
+    <div class="container">
+      <div class="news__card">
+        <h2 id="aktuality-title" class="news__title">
+          <span class="news__icon" aria-hidden="true">!</span>
+          {entry?.data.title ?? 'Aktuality'}
+        </h2>
+        <div class="prose"><Content /></div>
+      </div>
+    </div>
+  </section>
+)}

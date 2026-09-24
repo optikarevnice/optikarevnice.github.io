@@ -1,0 +1,32 @@
+---
+import { getEntry } from 'astro:content';
+import { services, typo } from '../lib/data';
+
+const oct = await getEntry('pages', 'oct');
+---
+
+<section id="sluzby" class="section section--tint" aria-labelledby="sluzby-title">
+  <div class="container">
+    <header class="section__header">
+      <p class="eyebrow">Co pro vás děláme</p>
+      <h2 id="sluzby-title">Služby</h2>
+    </header>
+    <div class="cards">
+      {oct && (
+        <article class="card card--feature">
+          <span class="card__icon" aria-hidden="true">🔬</span>
+          <h3 class="card__title">OCT vyšetření</h3>
+          {oct.data.summary && <p>{typo(oct.data.summary)}</p>}
+          <p><a class="link-arrow" href="/oct/">Více o vyšetření OCT</a></p>
+        </article>
+      )}
+      {services.map((s) => (
+        <article class="card">
+          {s.icon && <span class="card__icon" aria-hidden="true">{s.icon}</span>}
+          <h3 class="card__title">{s.title}</h3>
+          <p>{typo(s.description)}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

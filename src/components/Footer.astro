@@ -1,0 +1,41 @@
+---
+import Logo from './Logo.astro';
+import { contact, fullAddress, locations, site, telHref, typo } from '../lib/data';
+const { company } = contact;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <p class="brand brand--footer"><Logo class="brand__mark" /><span class="brand__name">{site.name}</span></p>
+      <p class="muted">{typo(site.description)}</p>
+    </div>
+    <div>
+      <h2 class="site-footer__title">Pobočky</h2>
+      <ul class="plain">
+        {locations.map((l) => (
+          <li>
+            <strong>{l.name}</strong><br />
+            {fullAddress(l)}<br />
+            <a href={telHref(l.phone)}>{l.phone}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h2 class="site-footer__title">Provozovatel</h2>
+      <p>
+        <strong>{company.name}</strong><br />
+        IČO: {company.ico}<br />
+        {company.directors.map((d) => <>Jednatel: {d}<br /></>)}
+        Spisová značka: {company.registry}<br />
+        Sídlo: {company.address}
+      </p>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <p>&copy; {year} {company.name}</p>
+    <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+  </div>
+</footer>

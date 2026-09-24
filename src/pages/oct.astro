@@ -1,0 +1,67 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { locations, pricing, telHref, typo } from '../lib/data';
+import { ORG_ID, SITE_URL, breadcrumbs } from '../lib/schema';
+
+const entry = await getEntry('pages', 'oct');
+if (!entry) throw new Error('Missing src/content/pages/oct.md');
+const { Content } = await render(entry);
+
+const octPrices = pricing.filter((p) => /\bOCT\b/i.test(p.service));
+const ordinace = locations.flatMap((l) => l.units.filter((u) => u.kind === 'ordinace').map((u) => ({ location: l, unit: u })))[0];
+const phone = ordinace ? (ordinace.unit.phone ?? ordinace.location.phone) : undefined;
+
+const jsonLd = [
+  breadcrumbs([
+    { name: 'Úvod', path: '/' },
+    { name: entry.data.title, path: '/oct/' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    url: `${SITE_URL}/oct/`,
+    name: entry.data.title,
+    description: entry.data.description,
+    inLanguage: 'cs-CZ',
+    publisher: { '@id': ORG_ID },
+    about: {
+      '@type': 'MedicalTest',
+      name: 'Optická koherentní tomografie (OCT)',
+      alternateName: 'Spektrální OCT',
+      usedToDiagnose: [
+        { '@type': 'MedicalCondition', name: 'Glaukom (zelený zákal)' },
+        { '@type': 'MedicalCondition', name: 'Makulární degenerace' },
+      ],
+    },
+  },
+];
+---
+
+<Base title={entry.data.title} description={entry.data.description} jsonLd={jsonLd}>
+  <article class="section article">
+    <div class="container container--narrow">
+      <nav class="breadcrumbs" aria-label="Drobečková navigace">
+        <a href="/">Úvod</a> <span aria-hidden="true">/</span> <span aria-current="page">OCT</span>
+      </nav>
+      <p class="eyebrow">Vyšetření v ordinaci</p>
+      <h1>{typo(entry.data.title)}</h1>
+      {entry.data.summary && <p class="article__lead">{typo(entry.data.summary)}</p>}
+
+      {(octPrices.length > 0 || phone) && (
+        <aside class="facts" aria-label="Cena a objednání">
+          {octPrices.map((p) => (
+            <p><span class="label">{p.service}</span><strong>{p.price}</strong></p>
+          ))}
+          {phone && (
+            <p><span class="label">Objednání</span><a href={telHref(phone)}><strong>{phone}</strong></a></p>
+          )}
+        </aside>
+      )}
+
+      <div class="prose"><Content /></div>
+
+      <p class="article__back"><a class="link-arrow" href="/#cenik">Celý ceník vyšetření</a></p>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,20 @@
+---
+import { locations, site, telHref, typo } from '../lib/data';
+const ordinace = locations.flatMap((l) => l.units.filter((u) => u.kind === 'ordinace').map((u) => ({ ...u, phone: u.phone ?? l.phone })))[0];
+---
+
+<section class="hero">
+  <div class="container hero__inner">
+    <p class="eyebrow">{locations.map((l) => l.name).join(' · ')}</p>
+    <h1>{typo(site.headline)}</h1>
+    {site.intro && <p class="hero__lead">{typo(site.intro)}</p>}
+    <div class="hero__actions">
+      <a class="button" href="#pobocky">Otevírací doba a adresy</a>
+      {ordinace && (
+        <a class="button button--ghost" href={telHref(ordinace.phone)}>
+          Objednat se: {ordinace.phone}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
