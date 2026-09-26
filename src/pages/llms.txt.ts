@@ -28,7 +28,8 @@ export const GET: APIRoute = async () => {
     for (const u of l.units) {
       lines.push(`${u.title}:`);
       for (const d of u.days) lines.push(`- ${d.day}: ${isClosed(d.hours) ? 'zavřeno' : d.hours}${d.note ? ` (${d.note})` : ''}`);
-      if (u.note) lines.push(`- ${u.note}${u.phone ? ` Tel.: ${u.phone}` : ''}`);
+      const phone = u.phone && u.phone !== l.phone ? `Tel.: ${u.phone}` : undefined;
+      if (u.note || phone) lines.push(`- ${[u.note, phone].filter(Boolean).join(' ')}`);
       lines.push('');
     }
   }

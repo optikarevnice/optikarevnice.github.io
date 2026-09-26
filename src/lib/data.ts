@@ -28,7 +28,11 @@ export const contact = load(
   'contact.yml',
   z.object({
     email: text,
-    social: z.object({ instagram: optionalText, facebook: optionalText }),
+    // Pages CMS may save "social:" as null once both links are cleared.
+    social: z
+      .object({ instagram: optionalText, facebook: optionalText })
+      .nullish()
+      .transform((v) => v ?? { instagram: undefined, facebook: undefined }),
     company: z.object({
       name: text,
       ico: z.coerce.string(),
