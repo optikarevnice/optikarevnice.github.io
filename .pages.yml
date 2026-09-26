@@ -290,6 +290,8 @@ content:
           - name: registry
             label: "Zápis v rejstříku"
             type: string
+            required: true
           - name: address
             label: "Sídlo"
             type: string
+            required: true

@@ -1,6 +1,12 @@
 ---
 import { fullAddress, isClosed, locations, telHref } from '../lib/data';
 import { dayOfWeek } from '../lib/schema';
+
+// The first doctor's office keeps the #ordinace anchor linked from the old site;
+// any further ones get a unique id so the page never has duplicate ids.
+const firstOrdinace = locations.flatMap((l) => l.units).find((u) => u.kind === 'ordinace');
+const unitId = (locationId: string, unit: (typeof locations)[number]['units'][number]) =>
+  unit === firstOrdinace ? 'ordinace' : unit.kind === 'ordinace' ? `${locationId}-ordinace` : undefined;
 ---
 
 <section id="pobocky" class="section" aria-labelledby="pobocky-title">
@@ -31,7 +37,7 @@ import { dayOfWeek } from '../lib/schema';
 
           <div class="location__units">
             {location.units.map((unit) => (
-              <div class="unit" id={unit.kind === 'ordinace' ? 'ordinace' : undefined}>
+              <div class="unit" id={unitId(location.id, unit)}>
                 <h4 class="unit__title">{unit.title}</h4>
                 <table class="hours">
                   <caption class="visually-hidden">Otevírací doba – {unit.title}</caption>
