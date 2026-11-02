@@ -1,6 +1,6 @@
 ---
 import { locations, site, telHref, typo } from '../lib/data';
-const ordinace = locations.flatMap((l) => l.units.filter((u) => u.kind === 'ordinace').map((u) => ({ ...u, phone: u.phone ?? l.phone })))[0];
+const ordinace = locations.flatMap((l) => l.units.filter((u) => u.kind === 'ordinace').map((u) => ({ ...u, phone: u.phone ?? l.phone, locationId: l.id })))[0];
 ---
 
 <section class="hero">
@@ -11,10 +11,33 @@ const ordinace = locations.flatMap((l) => l.units.filter((u) => u.kind === 'ordi
     <div class="hero__actions">
       <a class="button" href="#pobocky">Otevírací doba a adresy</a>
       {ordinace && (
-        <a class="button button--ghost" href={telHref(ordinace.phone)}>
+        <a class="button button--ghost" href={telHref(ordinace.phone)} data-posthog-location={ordinace.locationId}>
           Objednat se: {ordinace.phone}
         </a>
       )}
     </div>
   </div>
 </section>
+
+<script>
+  type PostHogWindow = Window & {
+    posthog?: {
+      capture: (event: string, properties?: Record<string, string>) => void;
+      logger?: { info: (message: string, attributes?: Record<string, string>) => void };
+    };
+  };
+
+  const appointmentLink = document.querySelector<HTMLAnchorElement>('.hero [data-posthog-location]');
+  appointmentLink?.addEventListener('click', () => {
+    const locationId = appointmentLink.dataset.posthogLocation ?? 'unknown';
+    const posthog = (window as PostHogWindow).posthog;
+    posthog?.capture('appointment_phone_clicked', {
+      contact_surface: 'hero',
+      location_id: locationId,
+    });
+    posthog?.logger?.info('appointment phone contact initiated', {
+      contact_surface: 'hero',
+      location_id: locationId,
+    });
+  });
+</script>
