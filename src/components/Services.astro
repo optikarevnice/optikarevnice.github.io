@@ -17,7 +17,7 @@ const oct = await getEntry('pages', 'oct');
           <span class="card__icon" aria-hidden="true">🔬</span>
           <h3 class="card__title">OCT vyšetření</h3>
           {oct.data.summary && <p>{typo(oct.data.summary)}</p>}
-          <p><a class="link-arrow" href="/oct/">Více o vyšetření OCT</a></p>
+          <p><a class="link-arrow" href="/oct/" data-posthog-oct-details>Více o vyšetření OCT</a></p>
         </article>
       )}
       {services.map((s) => (
@@ -30,3 +30,11 @@ const oct = await getEntry('pages', 'oct');
     </div>
   </div>
 </section>
+
+<script>
+  type PostHogWindow = Window & { posthog?: { capture: (event: string) => void } };
+
+  document.querySelector<HTMLAnchorElement>('[data-posthog-oct-details]')?.addEventListener('click', () => {
+    (window as PostHogWindow).posthog?.capture('oct_details_opened');
+  });
+</script>

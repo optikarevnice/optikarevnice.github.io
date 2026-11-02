@@ -1,0 +1,33 @@
+---
+---
+<script>
+  import posthog from 'posthog-js';
+
+  const apiKey = import.meta.env.PUBLIC_POSTHOG_PROJECT_TOKEN;
+  const apiHost = import.meta.env.PUBLIC_POSTHOG_HOST;
+
+  if (!apiKey || !apiHost) {
+    if (import.meta.env.DEV) {
+      console.error('PostHog disabled: PUBLIC_POSTHOG_PROJECT_TOKEN and PUBLIC_POSTHOG_HOST must both be set.');
+    }
+  } else {
+    posthog.init(apiKey, {
+      api_host: apiHost,
+      defaults: '2026-01-30',
+      // No cookies or local storage, so no consent banner is needed.
+      // Cookieless mode must also be enabled in the PostHog project settings.
+      cookieless_mode: 'always',
+      logs: {
+        serviceName: 'optikarevnice-web',
+        environment: import.meta.env.MODE,
+      },
+      capture_exceptions: {
+        capture_unhandled_errors: true,
+        capture_unhandled_rejections: true,
+        capture_console_errors: false,
+      },
+    });
+    // Component scripts call window.posthog for click tracking.
+    (window as Window & { posthog?: typeof posthog }).posthog = posthog;
+  }
+</script>

@@ -28,10 +28,10 @@ const unitId = (locationId: string, unit: (typeof locations)[number]['units'][nu
             </p>
             <p>
               <span class="label">Telefon</span>
-              <a href={telHref(location.phone)}>{location.phone}</a>
+              <a href={telHref(location.phone)} data-posthog-phone data-posthog-location={location.id}>{location.phone}</a>
             </p>
             {location.map_url && (
-              <p><a class="link-arrow" href={location.map_url} target="_blank" rel="noopener">Zobrazit na mapě</a></p>
+              <p><a class="link-arrow" href={location.map_url} target="_blank" rel="noopener" data-posthog-map data-posthog-location={location.id}>Zobrazit na mapě</a></p>
             )}
           </address>
 
@@ -56,7 +56,7 @@ const unitId = (locationId: string, unit: (typeof locations)[number]['units'][nu
                 {(unit.note || unit.phone) && (
                   <p class="unit__note">
                     {unit.note}
-                    {unit.phone && unit.phone !== location.phone && <> Tel.: <a href={telHref(unit.phone)}>{unit.phone}</a></>}
+                    {unit.phone && unit.phone !== location.phone && <> Tel.: <a href={telHref(unit.phone)} data-posthog-phone data-posthog-location={location.id}>{unit.phone}</a></>}
                   </p>
                 )}
               </div>
@@ -75,4 +75,39 @@ const unitId = (locationId: string, unit: (typeof locations)[number]['units'][nu
     row.classList.add('is-today');
     row.querySelector('th')?.insertAdjacentHTML('beforeend', ' <span class="today-badge">dnes</span>');
   });
+
+  type PostHogWindow = Window & {
+    posthog?: {
+      capture: (event: string, properties?: Record<string, string>) => void;
+      logger?: { info: (message: string, attributes?: Record<string, string>) => void };
+    };
+  };
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-posthog-phone]').forEach((link) =>
+    link.addEventListener('click', () => {
+      const locationId = link.dataset.posthogLocation ?? 'unknown';
+      const posthog = (window as PostHogWindow).posthog;
+      posthog?.capture('appointment_phone_clicked', {
+        contact_surface: 'locations',
+        location_id: locationId,
+      });
+      posthog?.logger?.info('appointment phone contact initiated', {
+        contact_surface: 'locations',
+        location_id: locationId,
+      });
+    }),
+  );
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-posthog-map]').forEach((link) =>
+    link.addEventListener('click', () => {
+      const locationId = link.dataset.posthogLocation ?? 'unknown';
+      const posthog = (window as PostHogWindow).posthog;
+      posthog?.capture('location_map_opened', {
+        location_id: locationId,
+      });
+      posthog?.logger?.info('clinic directions opened', {
+        location_id: locationId,
+      });
+    }),
+  );
 </script>

@@ -13,14 +13,14 @@ import { contact, fullAddress, locations, telHref } from '../lib/data';
         <div class="contact__item">
           <h3>{l.name}</h3>
           <p>
-            <a href={telHref(l.phone)}>{l.phone}</a><br />
+            <a href={telHref(l.phone)} data-posthog-location={l.id}>{l.phone}</a><br />
             {fullAddress(l)}
           </p>
         </div>
       ))}
       <div class="contact__item">
         <h3>E-mail</h3>
-        <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+        <p><a href={`mailto:${contact.email}`} data-posthog-email-contact>{contact.email}</a></p>
         {(contact.social.instagram || contact.social.facebook) && (
           <p class="social">
             {contact.social.instagram && (
@@ -41,3 +41,20 @@ import { contact, fullAddress, locations, telHref } from '../lib/data';
     </div>
   </div>
 </section>
+
+<script>
+  type PostHogWindow = Window & { posthog?: { capture: (event: string, properties?: Record<string, string>) => void } };
+
+  document.querySelectorAll<HTMLAnchorElement>('.contact [data-posthog-location]').forEach((link) =>
+    link.addEventListener('click', () => {
+      (window as PostHogWindow).posthog?.capture('appointment_phone_clicked', {
+        contact_surface: 'contact',
+        location_id: link.dataset.posthogLocation ?? 'unknown',
+      });
+    }),
+  );
+
+  document.querySelector<HTMLAnchorElement>('[data-posthog-email-contact]')?.addEventListener('click', () => {
+    (window as PostHogWindow).posthog?.capture('email_contact_clicked');
+  });
+</script>

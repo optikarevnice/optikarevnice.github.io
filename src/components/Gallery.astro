@@ -73,6 +73,7 @@ const items = await Promise.all(
   const body = dialog?.querySelector('.lightbox__body');
   const templates = [...document.querySelectorAll<HTMLTemplateElement>('.gallery__data')];
   let current = 0;
+  type PostHogWindow = Window & { posthog?: { capture: (event: string, properties?: Record<string, number>) => void } };
 
   function show(index: number) {
     if (!dialog || !body || !templates.length) return;
@@ -84,7 +85,9 @@ const items = await Promise.all(
   document.querySelectorAll<HTMLAnchorElement>('.gallery__link').forEach((link) =>
     link.addEventListener('click', (event) => {
       event.preventDefault();
-      show(Number(link.dataset.index));
+      const photoIndex = Number(link.dataset.index);
+      (window as PostHogWindow).posthog?.capture('gallery_photo_opened', { photo_index: photoIndex });
+      show(photoIndex);
     }),
   );
   dialog?.querySelector('.lightbox__close')?.addEventListener('click', () => dialog.close());
